@@ -22,14 +22,14 @@
   roles:
     - base
 
-- hosts: personal
-  tags: personal
-  become: true
-  roles:
-    - personal
-
-- hosts: workstation
-  tags: workstation
-  become: true
-  roles:
-    - workstation
+# - hosts: personal
+#   tags: personal
+#   become: true
+#   roles:
+#     - personal
+#
+# - hosts: workstation
+#   tags: workstation
+#   become: true
+#   roles:
+#     - workstation
