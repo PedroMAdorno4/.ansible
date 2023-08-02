@@ -1,7 +1,7 @@
 - name: users | quatro | create group
   tags: groups,quatro,users
   group:
-    name: quatro
+    name: me
     state: present
 
 - name: users | quatro | create user
@@ -15,7 +15,7 @@
     password: ""
     shell: /bin/bash
 
-- name: users | quatro | quatro | add sudoers file
+- name: users | quatro | add sudoers file
   tags: quatro,settings,simone,sudo,system,users
   copy:
     src: users/sudoers_quatro
@@ -66,28 +66,28 @@
 #     - { dir: '.vim/ftplugin' }
 #     - { dir: '.zsh' }
 
-- name: users | quatro | copy dotfiles
-  tags: dotfiles,users,quatro,tmux,users,vim,zsh
-  copy:
-    src: users/quatro/{{ item.src }}
-    dest: /home/quatro/{{ item.dest }}
-    owner: quatro
-    group: quatro
-    mode: 0600
-  with_items:
-    - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
-    - { src: 'bash/bash_profile', dest: '.bash_profile' }
-    - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
-    - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
-    - { src: 'bash/bashrc', dest: '.bashrc' }
-    - { src: 'bash/profile', dest: '.profile' }
-    - { src: 'git/gitconfig', dest: '.gitconfig' }
-    - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
-    - { src: 'inputrc', dest: '.inputrc' }
-    - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
-    - { src: 'vim/vimrc', dest: '.vimrc' }
-    - { src: 'zsh/zshrc', dest: '.zshrc' }
-
+# - name: users | quatro | copy dotfiles
+#   tags: dotfiles,users,quatro,tmux,users,vim,zsh
+#   copy:
+#     src: users/quatro/{{ item.src }}
+#     dest: /home/quatro/{{ item.dest }}
+#     owner: quatro
+#     group: quatro
+#     mode: 0600
+#   with_items:
+#     - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
+#     - { src: 'bash/bash_profile', dest: '.bash_profile' }
+#     - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
+#     - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
+#     - { src: 'bash/bashrc', dest: '.bashrc' }
+#     - { src: 'bash/profile', dest: '.profile' }
+#     - { src: 'git/gitconfig', dest: '.gitconfig' }
+#     - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
+#     - { src: 'inputrc', dest: '.inputrc' }
+#     - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
+#     - { src: 'vim/vimrc', dest: '.vimrc' }
+#     - { src: 'zsh/zshrc', dest: '.zshrc' }
+#
 
 
 
