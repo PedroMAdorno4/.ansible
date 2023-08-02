@@ -1,0 +1,111 @@
+- name: users | quatro | create group
+  tags: groups,quatro,users
+  group:
+    name: quatro
+    state: present
+
+- name: users | quatro | create user
+  tags: quatro,sudo,users
+  user:
+    name: quatro
+    group: quatro
+    groups: adm,ansible,{{ sudo_group }}
+    state: present
+    comment: ""
+    password: ""
+    shell: /bin/bash
+
+- name: users | quatro | quatro | add sudoers file
+  tags: quatro,settings,simone,sudo,system,users
+  copy:
+    src: users/sudoers_quatro
+    dest: /etc/sudoers.d/quatro
+    owner: root
+    group: root
+    mode: 0440
+
+- name: users | quatro | create .ssh directory
+  tags: dotfiles,quatro,ssh,users
+  file:
+    path: "{{ item.dir }}"
+    state: directory
+    owner: quatro
+    group: quatro
+    mode: 0700
+  with_items:
+    - { dir: '/home/quatro/.ssh' }
+
+- name: users | quatro | add public key
+  tags: dotfiles,quatro,ssh,ssh-keys,users
+  authorized_key:
+    user: quatro
+    key: "{{ item }}"
+  with_file:
+    - users/quatro/ssh/quatro_id_ed25519.pub
+
+# - name: users | quatro | create config directories
+#   tags: dotfiles,quatro,tmux,users,vim,zsh
+#   file:
+#     path: /home/quatro/{{ item.dir }}
+#     state: directory
+#     owner: quatro
+#     group: quatro
+#     mode: 0700
+#   with_items:
+#     - { dir: '.bash' }
+#     - { dir: '.config' }
+#     - { dir: '.config/htop' }
+#     - { dir: '.config/mc' }
+#     - { dir: '.tmux' }
+#     - { dir: '.tmux/config' }
+#     - { dir: '.tmux/plugins' }
+#     - { dir: '.vim' }
+#     - { dir: '.vim/autoload' }
+#     - { dir: '.vim/bundle' }
+#     - { dir: '.vim/colors' }
+#     - { dir: '.vim/ftplugin' }
+#     - { dir: '.zsh' }
+
+- name: users | quatro | copy dotfiles
+  tags: dotfiles,users,quatro,tmux,users,vim,zsh
+  copy:
+    src: users/quatro/{{ item.src }}
+    dest: /home/quatro/{{ item.dest }}
+    owner: quatro
+    group: quatro
+    mode: 0600
+  with_items:
+    - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
+    - { src: 'bash/bash_profile', dest: '.bash_profile' }
+    - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
+    - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
+    - { src: 'bash/bashrc', dest: '.bashrc' }
+    - { src: 'bash/profile', dest: '.profile' }
+    - { src: 'git/gitconfig', dest: '.gitconfig' }
+    - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
+    - { src: 'inputrc', dest: '.inputrc' }
+    - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
+    - { src: 'vim/vimrc', dest: '.vimrc' }
+    - { src: 'zsh/zshrc', dest: '.zshrc' }
+
+
+
+
+
+# - name: users | quatro | checkout git repositories
+#   tags: git,users,quatro
+#   become: yes
+#   git:
+#     repo: "{{ item.repo }}"
+#     dest: "{{ item.dest }}"
+#     force: yes
+#   with_items:
+#     - { repo: 'https://github.com/ctrlpvim/ctrlp.vim.git', dest: '/home/quatro/.vim/bundle/ctrlp.vim' }
+#     - { repo: 'https://github.com/davidhalter/jedi-vim.git', dest: '/home/quatro/.vim/bundle/jedi-vim' }
+#     - { repo: 'https://github.com/pearofducks/ansible-vim', dest: '/home/quatro/.vim/bundle/ansible-vim' }
+#     - { repo: 'https://github.com/rhysd/vim-grammarous.git', dest: '/home/quatro/.vim/bundle/vim-grammarous' }
+#     - { repo: 'https://github.com/ron89/thesaurus_query.vim', dest: '/home/quatro/.vim/bundle/thesaurus_query' }
+#     - { repo: 'https://github.com/scrooloose/nerdtree.git', dest: '/home/quatro/.vim/bundle/nerdtree' }
+#     - { repo: 'https://github.com/tpope/vim-obsession.git', dest: '/home/quatro/.vim/bundle/vim-obsession' }
+#     - { repo: 'https://github.com/vim-syntastic/syntastic.git', dest: '/home/quatro/.vim/bundle/syntastic' }
+#   notify: update_vim_bundle_perms

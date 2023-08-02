@@ -1,0 +1,4 @@
+cron_package: cronie
+openssh_package: openssh
+openssh_service: sshd
+sudo_group: wheel
