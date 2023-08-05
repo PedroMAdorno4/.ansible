@@ -26,11 +26,19 @@
     state: latest
   when: ansible_distribution == "Archlinux"
 
+- name: Check installed packages
+  ansible.builtin.command: pacman -Qm
+  register: installed_packages
+
+- name: "Install package"
+  become: false
+
 - name: system setup | install all packages part2 (yay)
   tags: ansible,ansible-setup,packages
   become_user: quatro
-  community.general.pacman:
-    name: 
+  ansible.builtin.command: "yay --noconfirm --noprogressbar --needed --sync {{ item }}"
+  when: item not in installed_packages.stdout and ansible_distribution == "Archlinux"
+  with_items:
       - neovim-git
       - spotify
       - nerd-fonts-git
@@ -46,10 +54,6 @@
       - shantz-xwinwrap-bzr
       - betterdiscord-installer
       - betterlockscreen
-    state: present
-    executable: yay
-    extra_args: --builddir /var/cache/yay
-  when: ansible_distribution == "Archlinux"
 
 - name: Install st package
   community.general.pacman:
