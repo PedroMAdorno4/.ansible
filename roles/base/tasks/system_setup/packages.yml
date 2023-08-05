@@ -23,7 +23,6 @@
       - playerctl
       - electron
       - ripgrep
-      - betterlockscreen
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -45,6 +44,7 @@
       - xmousepasteblock
       - shantz-xwinwrap-bzr
       - betterdiscord-installer
+      - betterlockscreen
     state: latest
     executable: yay
     extra_args: --builddir /var/cache/yay
