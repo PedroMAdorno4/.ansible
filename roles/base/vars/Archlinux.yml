@@ -2,3 +2,5 @@ cron_package: cronie
 openssh_package: openssh
 openssh_service: sshd
 sudo_group: wheel
+dconf_package: dconf
+python_psutil_package: python-psutil
