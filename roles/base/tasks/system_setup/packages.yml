@@ -46,7 +46,7 @@
       - shantz-xwinwrap-bzr
       - betterdiscord-installer
       - betterlockscreen
-    state: latest
+    state: present
     executable: yay
     extra_args: --builddir /var/cache/yay
   when: ansible_distribution == "Archlinux"
