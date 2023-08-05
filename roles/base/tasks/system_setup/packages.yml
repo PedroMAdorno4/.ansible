@@ -24,6 +24,8 @@
       - playerctl
       - electron
       - ripgrep
+      - ksuperkey
+      - betterlockscreen
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -47,3 +49,16 @@
     executable: yay
     extra_args: --builddir /var/cache/yay
   when: ansible_distribution == "Archlinux"
+
+- name: Install st package
+  community.general.pacman:
+    name:
+      - /home/quatro/scripts/archcraft/archcraft-st/archcraft-st-0.8.4-3-x86_64.pkg.tar.zst
+    state: present
+
+- name: Install dwm package
+  community.general.pacman:
+    name:
+      - /home/quatro/scripts/archcraft/archcraft-dwm/archcraft-dwm-2.0-0-any.pkg.tar.zst
+    state: present
+
