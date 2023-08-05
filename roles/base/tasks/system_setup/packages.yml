@@ -35,7 +35,7 @@
       - spotify
       - nerd-fonts-git
       - zsh-theme-powerlevel10k-git
-      - python-lauchpadlib
+      - python-launchpadlib
       - nvm
       - gotop-bin
       - ksuperkey
