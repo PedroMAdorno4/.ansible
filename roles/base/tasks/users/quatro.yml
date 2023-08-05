@@ -43,28 +43,22 @@
   with_file:
     - users/quatro/ssh/quatro_id_ed25519.pub
 
-# - name: users | quatro | create config directories
-#   tags: dotfiles,quatro,tmux,users,vim,zsh
-#   file:
-#     path: /home/quatro/{{ item.dir }}
-#     state: directory
-#     owner: quatro
-#     group: quatro
-#     mode: 0700
-#   with_items:
-#     - { dir: '.bash' }
-#     - { dir: '.config' }
-#     - { dir: '.config/htop' }
-#     - { dir: '.config/mc' }
-#     - { dir: '.tmux' }
-#     - { dir: '.tmux/config' }
-#     - { dir: '.tmux/plugins' }
-#     - { dir: '.vim' }
-#     - { dir: '.vim/autoload' }
-#     - { dir: '.vim/bundle' }
-#     - { dir: '.vim/colors' }
-#     - { dir: '.vim/ftplugin' }
-#     - { dir: '.zsh' }
+- name: users | quatro | create config directories
+  tags: dotfiles,quatro,tmux,users,vim,zsh
+  file:
+    path: /home/quatro/{{ item.dir }}
+    state: directory
+    owner: quatro
+    group: quatro
+    mode: 0700
+  with_items:
+    - { dir: '.config' }
+    - { dir: '.config/nvim' }
+    - { dir: '.config/nvim/lua' }
+    - { dir: '.config/nvim/lua/user' }
+    - { dir: '.config/mpv' }
+    - { dir: 'scripts' }
+    - { dir: 'pjx' }
 
 - name: users | quatro | copy dotfiles
   tags: dotfiles,users,quatro,users,vim,zsh
@@ -79,8 +73,8 @@
     - { src: 'config/mpv', dest: '.config/mpv' }
     - { src: 'scripts/archraft', dest: 'scripts/archcraft' }
     - { src: 'zshrc', dest: '.zshrc' }
-    - { src: 'usr/local/bin/compiler', dest: 'usr/local/bin/compiler' }
-    - { src: 'usr/local/bin/opout', dest: 'usr/local/bin/opout' }
+    - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
+    - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'inputrc', dest: '.inputrc' }
     - { src: 'scripts/rotateScreen.sh', dest: 'scripts/rotateScreen.sh' }
     - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
