@@ -87,6 +87,12 @@
     - { src: 'pjx/project-terminals.txt', dest: 'pjx/project-terminals.txt' }
 
 
+- name: Install dwm and st packages
+  community.general.pacman:
+    name:
+      - /home/quatro/scripts/archcraft/archcraft-st/archcraft-st-0.8.4-3-x86_64.pkg.tar.zst
+      - /home/quatro/scripts/archcraft/archcraft-dwm/archcraft-dwm-2.0-0-any.pkg.tar.zst
+    state: present
 
 
 
