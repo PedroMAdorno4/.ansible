@@ -28,6 +28,7 @@
 
 - name: system setup | install all packages part2 (yay)
   tags: ansible,ansible-setup,packages
+  become: quatro
   community.general.pacman:
     name: 
       - neovim-git

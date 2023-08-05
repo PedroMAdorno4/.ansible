@@ -1,6 +1,6 @@
 #!/bin/bash
 
-sudo pacman -Syu ansible
+sudo pacman -Syu --needed ansible git base-devel
 
 # install yay
 sudo pacman -S --needed git base-devel
