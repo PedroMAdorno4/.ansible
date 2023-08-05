@@ -1,0 +1,49 @@
+- name: system setup | upgrade all packages
+  community.general.pacman:
+    update_cache: true
+    upgrade: true
+  when: ansible_distribution == "Archlinux"
+
+- name: system setup | install all packages part1 (pacman)
+  tags: ansible,ansible-setup,packages
+  community.general.pacman:
+    name: 
+      - archlinux-keyring
+      - arandr
+      - linux-zen
+      - linux-zen-docs
+      - linux-zen-headers
+      - grub-customizer
+      - python3
+      - python-pip
+      - go
+      - mpv
+      - gotop
+      - flameshot
+      - filezilla
+      - playerctl
+      - electron
+      - ripgrep
+    state: latest
+  when: ansible_distribution == "Archlinux"
+
+- name: system setup | install all packages part2 (yay)
+  tags: ansible,ansible-setup,packages
+  community.general.pacman:
+    name: 
+      - neovim-git
+      - spotify
+      - nerd-fonts-git
+      - zsh-theme-powerlevel10k-git
+      - python-lauchpadlib
+      - nvm
+      - pam_ssh
+      - beekeeper-studio-bin
+      - discord_arch_electron
+      - xmousepasteblock
+      - shantz-xwinwrap-bzr
+      - betterdiscord-installer
+    state: latest
+    executable: yay
+    extra_args: --builddir /var/cache/yay
+  when: ansible_distribution == "Archlinux"

@@ -1,0 +1,13 @@
+#Comments are added like this
+
+~/pjx/novelhalla:
+  pnpm run dev --host
+  <blank>
+
+#Projects must be separated by at least one blank line
+#~/second/project/here: - project path, must end with ':'
+#  node - opens a terminal and runs node on it
+#  <blank> - opens a terminal with no command
+# <blank> parsing needs to be added to the script
+# Maybe I should add support for adding a line that will get typed in the terminal but the command won't run (maybe with xdotool?)
+

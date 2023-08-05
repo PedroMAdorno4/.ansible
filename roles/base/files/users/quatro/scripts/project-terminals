@@ -1,0 +1,29 @@
+#!/bin/bash
+filepath=~/pjx/project-terminals.txt
+
+filteredFile=$(sed '/#/d' $filepath)
+selectedProject=$(echo "$filteredFile" | grep ':' | sed 's/://' | fzf)
+parsedProject="${selectedProject//\~/$HOME}"
+
+if [[ $parsedProject ]]; then
+	projectCommands=$(echo "$filteredFile" | awk 'index($0, P":\n")==1' RS="" ORS="\n\n" P="$selectedProject" | head -n -1 | tail -n +2)
+	cd "$parsedProject" || exit
+
+	rm /tmp/project-terminals.pid >/dev/null 2>&1
+	echo "$projectCommands" | while read -r cmd; do
+		st sh -c zsh &
+		end="${cmd: -7}"
+		if [[ $end != "<blank>" ]]; then
+			wid=$(xdotool search --pid $!)
+			sleep 0.2
+
+			if [[ "$end" = "<enter>" ]]; then
+				xdotool type --window "$wid" --delay 1 "${cmd%???????}"
+				xdotool key --window "$wid" --delay 1 Return
+			else
+				xdotool type --window "$wid" --delay 1 "$cmd"
+			fi
+		fi
+	done
+
+fi

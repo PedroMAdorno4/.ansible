@@ -66,28 +66,32 @@
 #     - { dir: '.vim/ftplugin' }
 #     - { dir: '.zsh' }
 
-# - name: users | quatro | copy dotfiles
-#   tags: dotfiles,users,quatro,tmux,users,vim,zsh
-#   copy:
-#     src: users/quatro/{{ item.src }}
-#     dest: /home/quatro/{{ item.dest }}
-#     owner: quatro
-#     group: quatro
-#     mode: 0600
-#   with_items:
-#     - { src: 'bash/bash_aliases', dest: '.bash/bash_aliases' }
-#     - { src: 'bash/bash_profile', dest: '.bash_profile' }
-#     - { src: 'bash/bash_prompt', dest: '.bash/bash_prompt' }
-#     - { src: 'bash/bash_functions', dest: '.bash/bash_functions' }
-#     - { src: 'bash/bashrc', dest: '.bashrc' }
-#     - { src: 'bash/profile', dest: '.profile' }
-#     - { src: 'git/gitconfig', dest: '.gitconfig' }
-#     - { src: 'htop/htoprc', dest: '.config/htop/htoprc' }
-#     - { src: 'inputrc', dest: '.inputrc' }
-#     - { src: 'mc/mc.ini', dest: '.config/mc/ini' }
-#     - { src: 'vim/vimrc', dest: '.vimrc' }
-#     - { src: 'zsh/zshrc', dest: '.zshrc' }
-#
+- name: users | quatro | copy dotfiles
+  tags: dotfiles,users,quatro,users,vim,zsh
+  copy:
+    src: users/quatro/{{ item.src }}
+    dest: /home/quatro/{{ item.dest }}
+    owner: quatro
+    group: quatro
+    mode: 0755
+  with_items:
+    - { src: 'config/nvim/lua/user', dest: '.config/nvim/lua/user' }
+    - { src: 'config/mpv', dest: '.config/mpv' }
+    - { src: 'scripts/archraft', dest: 'scripts/archcraft' }
+    - { src: 'zshrc', dest: '.zshrc' }
+    - { src: 'usr/local/bin/compiler', dest: 'usr/local/bin/compiler' }
+    - { src: 'usr/local/bin/opout', dest: 'usr/local/bin/opout' }
+    - { src: 'inputrc', dest: '.inputrc' }
+    - { src: 'scripts/rotateScreen.sh', dest: 'scripts/rotateScreen.sh' }
+    - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
+    - { src: 'scripts/switchAudio.sh', dest: 'scripts/switchAudio.sh' }
+    - { src: 'scripts/decreaseVolume.sh', dest: 'scripts/decreaseVolume.sh' }
+    - { src: 'scripts/increaseVolume.sh', dest: 'scripts/increaseVolume.sh' }
+    - { src: 'scripts/toggle-spotify', dest: 'scripts/toggle-spotify' }
+    - { src: 'scripts/project-finder', dest: 'scripts/project-finder' }
+    - { src: 'scripts/project-terminals', dest: 'scripts/project-terminals' }
+    - { src: 'pjx/project-terminals.txt', dest: 'pjx/project-terminals.txt' }
+
 
 
 

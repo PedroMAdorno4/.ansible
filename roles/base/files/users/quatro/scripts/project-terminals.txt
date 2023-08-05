@@ -1,0 +1,11 @@
+#Comments are added like this
+
+~/pjx/novelhalla:
+  pnpm run dev
+  node
+
+#Projects must be separated by at least one blank line
+#~/second/project/here: - project path, must end with ':'
+#  node - opens a terminal and runs node on it
+#  <blank> - opens a terminal with no command
+
