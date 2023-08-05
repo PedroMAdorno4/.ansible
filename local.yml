@@ -17,7 +17,7 @@
       when: ansible_distribution in ["Debian", "Ubuntu"]
 
 # run roles
-- hosts: all
+- hosts: localhost
   tags: base
   become: true
   roles:
