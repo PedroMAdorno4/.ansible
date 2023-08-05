@@ -30,9 +30,6 @@
   ansible.builtin.command: pacman -Qm
   register: installed_packages
 
-- name: "Install package"
-  become: false
-
 - name: system setup | install all packages part2 (yay)
   tags: ansible,ansible-setup,packages
   become_user: quatro
