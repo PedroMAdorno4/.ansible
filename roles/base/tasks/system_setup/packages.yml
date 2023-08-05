@@ -18,7 +18,6 @@
       - python-pip
       - go
       - mpv
-      - gotop
       - flameshot
       - filezilla
       - playerctl
@@ -39,6 +38,7 @@
       - zsh-theme-powerlevel10k-git
       - python-lauchpadlib
       - nvm
+      - gotop-bin
       - pam_ssh
       - beekeeper-studio-bin
       - discord_arch_electron
