@@ -23,7 +23,6 @@
       - playerctl
       - electron
       - ripgrep
-      - ksuperkey
       - betterlockscreen
     state: latest
   when: ansible_distribution == "Archlinux"
@@ -39,6 +38,7 @@
       - python-lauchpadlib
       - nvm
       - gotop-bin
+      - ksuperkey
       - pam_ssh
       - beekeeper-studio-bin
       - discord_arch_electron
