@@ -10,6 +10,7 @@
     name: 
       - archlinux-keyring
       - arandr
+      - xorg-xinit
       - linux-zen
       - linux-zen-docs
       - linux-zen-headers
