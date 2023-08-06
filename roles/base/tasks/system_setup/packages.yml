@@ -24,6 +24,8 @@
       - playerctl
       - electron
       - ripgrep
+      - fzf
+      - picom
     state: latest
   when: ansible_distribution == "Archlinux"
 
