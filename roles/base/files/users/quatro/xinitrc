@@ -1,1 +1,1 @@
-exec dwm
+exec /usr/share/archcraft/dwm/bin/autostart.sh
