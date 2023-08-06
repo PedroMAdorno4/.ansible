@@ -73,6 +73,7 @@
     - { src: 'config/mpv', dest: '.config' }
     - { src: 'scripts/archcraft', dest: 'scripts' }
     - { src: 'zshrc', dest: '.zshrc' }
+    - { src: 'xinitrc', dest: '.xinitrc' }
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'inputrc', dest: '.inputrc' }
