@@ -6,7 +6,7 @@
 # Kill already running process
 _ps=(picom dunst ksuperkey mpd xfce-polkit xfce4-power-manager dwmbar)
 for _prs in "${_ps[@]}"; do
-	if [[ `pgrep ${_prs}` ]]; then
+	if [[ $(pgrep ${_prs}) ]]; then
 		killall -9 ${_prs}
 	fi
 done
@@ -35,15 +35,17 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 xset r rate 260 60 &
 xmousepasteblock &
 flameshot &
-spotify &
+ncspot &
 sleep 1 && wallpaper-engine &
 
 if [[ "$USER" = "pedroma" ]]; then
-  slack &
+	slack &
 fi
-
 
 ## -----------------------------------------------
 
 # Launch DWM
-while dwm; [ $? -ne 0  ]; do echo "start dwm"; done
+while
+	dwm
+	[ $? -ne 0 ]
+do echo "start dwm"; done

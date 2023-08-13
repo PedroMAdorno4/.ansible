@@ -2,3 +2,30 @@
   user:
     name: root
     password_lock: yes
+
+- name: users | root | create system directories
+  tags: dotfiles,root,users,vim,zsh
+  file:
+    path: /
+    state: directory
+    owner: quatro
+    group: me
+    mode: 0775
+  with_items:
+    - { dir: '/usr/.local' }
+    - { dir: '/usr/.local/bin' }
+
+- name: Create executable hard links
+  ansible.builtin.file:
+    src: '/home/quatro/scripts/{{ item.src }}'
+    dest: '/usr/.local/bin/{{ item.src }}'
+    state: hard
+  loop:
+    - { src: 'decrease-volume'}
+    - { src: 'increase-volume'}
+    - { src: 'project-finder'}
+    - { src: 'project-terminals'}
+    - { src: 'rotate-screen'}
+    - { src: 'switch-audio'}
+    - { src: 'toggle-spotify'}
+    - { src: 'update-units-conversion-rates'}
