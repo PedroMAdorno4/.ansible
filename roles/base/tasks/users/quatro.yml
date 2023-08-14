@@ -100,6 +100,7 @@
   tags: test
   ansible.builtin.script:
     cmd: /home/quatro/scripts/archcraft/build-packages.sh
+    chdir: /home/quatro/scripts/archcraft
 
 
 # - name: users | quatro | checkout git repositories
