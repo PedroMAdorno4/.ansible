@@ -27,7 +27,7 @@ build_pkg() {
 	echo -e "\nBuilding Package ${1} - \n"
 	cd ${1}
 	rm -r pkg src *.pkg.tar.zst
-	makepkg -scfi
+	makepkg --noconfirm -scfi
 
 	if [[ "$1" == "archcraft-st" ]]; then
 		rm *.tar.gz
