@@ -82,9 +82,10 @@
     - { src: 'scripts/archcraft', dest: 'scripts' }
     - { src: 'zshrc', dest: '.zshrc' }
     - { src: 'xinitrc', dest: '.xinitrc' }
+    - { src: 'inputrc', dest: '.inputrc' }
+    - { src: 'p10k.zsh', dest: '.p10k.zsh' }
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
-    - { src: 'inputrc', dest: '.inputrc' }
     - { src: 'scripts/rotate-screen', dest: 'scripts/rotate-screen' }
     - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
     - { src: 'scripts/switch-audio', dest: 'scripts/switch-audio' }
