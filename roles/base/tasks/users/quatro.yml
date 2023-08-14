@@ -77,11 +77,11 @@
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'inputrc', dest: '.inputrc' }
-    - { src: 'scripts/rotateScreen.sh', dest: 'scripts/rotateScreen.sh' }
+    - { src: 'scripts/rotate-screen', dest: 'scripts/rotate-screen' }
     - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
-    - { src: 'scripts/switchAudio.sh', dest: 'scripts/switchAudio.sh' }
-    - { src: 'scripts/decreaseVolume.sh', dest: 'scripts/decreaseVolume.sh' }
-    - { src: 'scripts/increaseVolume.sh', dest: 'scripts/increaseVolume.sh' }
+    - { src: 'scripts/switch-audio', dest: 'scripts/switch-audio' }
+    - { src: 'scripts/decrease-volume', dest: 'scripts/decrease-volume' }
+    - { src: 'scripts/increase-volume', dest: 'scripts/increase-volume' }
     - { src: 'scripts/toggle-spotify', dest: 'scripts/toggle-spotify' }
     - { src: 'scripts/project-finder', dest: 'scripts/project-finder' }
     - { src: 'scripts/project-terminals', dest: 'scripts/project-terminals' }
