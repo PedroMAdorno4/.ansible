@@ -97,6 +97,7 @@
     - { src: 'pjx/project-terminals.txt', dest: 'pjx/project-terminals.txt' }
 
 - name: system setup | Build and install dwm and st packages
+  tags: test
   ansible.builtin.script:
     cmd: /home/quatro/scripts/archcraft/build-packages.sh
 
