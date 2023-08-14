@@ -4,8 +4,8 @@
 ANSIBLEUSER="quatro"
 BRANCH="{{ branch | default('master') }}"
 LOGFILE="/var/log/ansible.log"
-REPO="git@github.com:PedroMAdorno4/.ansible.git"
-VAULT_KEY="/home/quatro/.ansible/roles/base/vars/vault.yml"
+REPO="https://github.com/PedroMAdorno4/.ansible"
+# VAULT_KEY="/home/quatro/.ansible/roles/base/vars/vault.yml"
 PRECMD="sudo systemd-inhibit --who='ansible-pull' --why='provisioning'"
 
 # check if ansible-pull is already running, and if not, run it
@@ -14,9 +14,10 @@ if pgrep -f ansible-pull; then
 		tee -a $LOGFILE
 	exit 1
 else
+	# $PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -U $REPO -C $BRANCH --tags $1 2>&1
 	if [ ! $1 == "" ]; then
-		$PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -U $REPO -C $BRANCH --tags $1 2>&1
+		$PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull -U $REPO -C $BRANCH --tags $1 2>&1
 	else
-		$PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull --vault-password-file=$VAULT_KEY -o -U $REPO -C $BRANCH 2>&1
+		$PRECMD sudo -iH -u $ANSIBLEUSER ansible-pull -o -U $REPO -C $BRANCH 2>&1
 	fi
 fi
