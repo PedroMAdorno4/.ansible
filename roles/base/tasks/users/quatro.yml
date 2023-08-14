@@ -98,8 +98,9 @@
 
 - name: system setup | Build and install dwm and st packages
   tags: test
-  ansible.builtin.script:
-    cmd: /home/quatro/scripts/archcraft/build-packages.sh
+  ansible.builtin.command: /home/quatro/scripts/archcraft/build-packages.sh
+  become_user: quatro
+  args:
     chdir: /home/quatro/scripts/archcraft
 
 
