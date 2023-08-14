@@ -19,7 +19,7 @@
 - lineinfile:
      path: /etc/sudoers.d/quatro-allow-to-makepkg
      state: present
-     line: "quatro ALL=(ALL) NOPASSWD: /usr/bin/pacman,/usr/share/terminfo"
+     line: "quatro ALL=(ALL) NOPASSWD: /usr/bin/pacman"
      validate: /usr/sbin/visudo -cf %s
      create: yes
 
@@ -108,17 +108,23 @@
   args:
     chdir: /home/quatro/scripts/archcraft/archcraft-dwm
 
-- name: system setup | Install st package
-  community.general.pacman:
-    name:
-      - /home/quatro/scripts/archcraft/archcraft-st/archcraft-st-0.8.4-3-x86_64.pkg.tar.zst
-    state: present
+- name: system setup | Build and install dwm and st packages
+  ansible.builtin.script:
+    cmd: /home/quatro/scripts/archcraft/build-packages.sh
 
-- name: system setup | Install dwm package
-  community.general.pacman:
-    name:
-      - /home/quatro/scripts/archcraft/archcraft-dwm/archcraft-dwm-2.0-0-any.pkg.tar.zst
-    state: present
+# - name: system setup | Install st package
+#   become_user: quatro
+#   community.general.pacman:
+#     name:
+#       - /home/quatro/scripts/archcraft/archcraft-st/archcraft-st-0.8.4-3-x86_64.pkg.tar.zst
+#     state: present
+#
+# - name: system setup | Install dwm package
+#   become_user: quatro
+#   community.general.pacman:
+#     name:
+#       - /home/quatro/scripts/archcraft/archcraft-dwm/archcraft-dwm-2.0-0-any.pkg.tar.zst
+#     state: present
 
 
 # - name: users | quatro | checkout git repositories
