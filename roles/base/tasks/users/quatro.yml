@@ -15,6 +15,14 @@
     password: ""
     shell: /bin/zsh
 
+
+- lineinfile:
+     path: /etc/sudoers.d/quatro-allow-to-makepkg
+     state: present
+     line: "quatro ALL=(ALL) NOPASSWD: /usr/bin/pacman,/usr/share/terminfo"
+     validate: /usr/sbin/visudo -cf %s
+     create: yes
+
 - name: users | quatro | add sudoers file
   tags: quatro,settings,simone,sudo,system,users
   copy:

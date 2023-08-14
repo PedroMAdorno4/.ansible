@@ -41,6 +41,8 @@
   ansible.builtin.command: "yay --noconfirm --noprogressbar --needed --sync {{ item }}"
   when: item not in installed_packages.stdout and ansible_distribution == "Archlinux"
   with_items:
+      - lib32-ncurses-git
+      - ncurses-git
       - neovim-git
       - spotify
       - nerd-fonts-git
