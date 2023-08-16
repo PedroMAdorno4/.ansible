@@ -5,15 +5,16 @@
 
 - name: users | root | create system directories
   tags: dotfiles,root,users,vim,zsh
+  become: yes
   file:
-    path: /
+    path: /{{ item.dir }}
     state: directory
     owner: quatro
     group: me
     mode: 0775
   with_items:
-    - { dir: '/usr/.local' }
-    - { dir: '/usr/.local/bin' }
+    - { dir: 'usr/.local' }
+    - { dir: 'usr/.local/bin' }
 
 - name: Create executable hard links
   ansible.builtin.file:
