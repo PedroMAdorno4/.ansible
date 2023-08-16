@@ -20,7 +20,9 @@
   ansible.builtin.file:
     src: '/home/quatro/scripts/{{ item.src }}'
     dest: '/usr/.local/bin/{{ item.src }}'
-    state: hard
+    owner: quatro
+    group: me
+    state: link
   loop:
     - { src: 'decrease-volume'}
     - { src: 'increase-volume'}
