@@ -31,4 +31,3 @@
     - { src: 'rotate-screen'}
     - { src: 'switch-audio'}
     - { src: 'toggle-spotify'}
-    - { src: 'update-units-conversion-rates'}
