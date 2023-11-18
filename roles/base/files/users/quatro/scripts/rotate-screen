@@ -17,9 +17,9 @@ rotate() {
     fi
 
     if [[ $ORIENTATION = portrait ]]; then
-        xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate normal --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DVI-D-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --brightness $brightness2
+        xrandr --output DVI-D-0 --off --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DisplayPort-2 --primary --mode "1920x1080_60.00_rb2" --pos 0x0 --rotate normal --brightness $brightness2
     elif [[ $ORIENTATION = landscape ]]; then
-        xrandr --output DVI-D-0 --off --output HDMI-0 --mode 1920x1080 --pos 1920x0 --rotate left --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DVI-D-1 --primary --mode 1920x1080 --pos 0x387 --rotate normal --brightness $brightness2
+        xrandr --output DVI-D-0 --off --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate left --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DisplayPort-2 --primary --mode "1920x1080_60.00_rb2" --pos 0x387 --rotate normal --brightness $brightness2
     fi
 
     wallpaper-engine
