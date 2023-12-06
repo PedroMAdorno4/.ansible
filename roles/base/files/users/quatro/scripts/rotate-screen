@@ -18,13 +18,13 @@ toggle_rotation() {
 set_landscape() {
     xrandr --output "$leftDisplay" --mode 1920x1080 --pos 0x0 --rotate normal --primary --rate 144.00 --brightness $brightness1 --output "$rightDisplay" --mode 1920x1080 --pos 1920x0 --rotate normal --brightness $brightness2
 
-    wallpaper-engine &
+    /usr/.local/bin/wallpaper-engine &
 }
 
 set_portrait() {
     xrandr --output "$leftDisplay" --mode 1920x1080 --pos 0x0 --rotate normal --primary --rate 144.00 --brightness $brightness1 --output "$rightDisplay" --mode 1920x1080 --pos 1920x0 --rotate left --brightness $brightness2
 
-    wallpaper-engine &
+    /usr/.local/bin/wallpaper-engine &
 }
 
 
