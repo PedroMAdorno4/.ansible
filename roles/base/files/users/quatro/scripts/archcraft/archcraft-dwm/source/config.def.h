@@ -182,10 +182,10 @@ static const char *upvol[]   			= { "/usr/share/archcraft/dwm/bin/dwmvolume.sh",
 static const char *downvol[] 			= { "/usr/share/archcraft/dwm/bin/dwmvolume.sh", "--dec",    	NULL };
 static const char *upbl[] 				= { "/usr/share/archcraft/dwm/bin/dwmbrightness.sh", "--inc",    NULL };
 static const char *downbl[] 			= { "/usr/share/archcraft/dwm/bin/dwmbrightness.sh", "--dec",  NULL };
-static const char *spotifyplaypause[] 			= { "toggle-spotify", "--play-pause",  NULL };
-static const char *spotifynext[] 			      = { "toggle-spotify", "--next",  NULL };
-static const char *switchaudio[] 			      = { "switch-audio", "toggle",  NULL };
-static const char *rotatescreen[] 			      = { "rotate-screen", "--toggle",  NULL };
+static const char *spotifyplaypause[] 			= { "/usr/.local/bin/toggle-spotify", "--play-pause",  NULL };
+static const char *spotifynext[] 			      = { "/usr/.local/bin/toggle-spotify", "--next",  NULL };
+static const char *switchaudio[] 			      = { "/usr/.local/bin/switch-audio", "toggle",  NULL };
+static const char *rotatescreen[] 			      = { "/usr/.local/bin/rotate-screen", "--toggle",  NULL };
 
 /* Screenshot */
 static const char *shotnow[]  			= { "flameshot", "gui", NULL };
@@ -285,14 +285,10 @@ static Key keys[] = {
     { MODKEY, 					              XK_f, 					  	      togglefullscr, {0} },
     { MODKEY, 					              XK_s, 					  	      togglesticky, {0} },
 
-    { MODKEY, 					              XK_space, 			          setlayout, {0} }, 
-	  { MODKEY, 					              XK_t, 						        setlayout, {.v = &layouts[0]} }, // Tile
-    { MODKEY, 					              XK_g, 						        setlayout, {.v = &layouts[10]} }, // Grid
-    { MODKEY|ShiftMask, 		          XK_m, 						        setlayout, {.v = &layouts[1]} }, // Monocle
-    { MODKEY|ShiftMask, 		          XK_s, 						        setlayout, {.v = &layouts[2]} }, // Spiral
-    { MODKEY|ShiftMask, 		          XK_t, 						        setlayout, {.v = &layouts[5]} }, // Stack
-    { MODKEY|ShiftMask, 		          XK_c, 						        setlayout, {.v = &layouts[11]} }, // Centered master
-    { MODKEY|ShiftMask, 		          XK_x, 						        setlayout, {.v = &layouts[13]} }, // Tatami
+    { MODKEY,					  XK_space,							setlayout, {0} }, 
+    { MODKEY, 					  XK_t, 						        setlayout, {.v = &layouts[0]} }, // Tile
+    { MODKEY,					  XK_y, 						        setlayout, {.v = &layouts[10]} }, // Gapless grid
+    { MODKEY,					  XK_u, 						        setlayout, {.v = &layouts[11]} }, // Centered master
     
 };
 

@@ -1,40 +1,42 @@
 #!/usr/bin/sh
 
-currentOrientation=`(xrandr --listmonitors | awk '{print $3}' | sed -n '/^1080/p')`
-
-#export DISPLAY=:0
-
 brightness1=0.7
 brightness2=1
+leftDisplay="DisplayPort-2"
+rightDisplay="HDMI-A-0"
 
-ORIENTATION=none
+toggle_rotation() {
+    currentOrientation=`(xrandr | sed -n '/\bconnected\b/p' | grep -v primary | awk '{print $4}')`
 
-rotate() {
-    if [[ $currentOrientation = "1080/531x1920/299+1920+0" ]]; then
-        ORIENTATION=portrait
-    else
-        ORIENTATION=landscape
+    if [[ $currentOrientation = "left" ]]; then
+        set_landscape
+    elif [[ $currentOrientation = "(normal" ]]; then
+        set_portrait
     fi
+}
 
-    if [[ $ORIENTATION = portrait ]]; then
-        xrandr --output DVI-D-0 --off --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate normal --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DisplayPort-2 --primary --mode "1920x1080_60.00_rb2" --pos 0x0 --rotate normal --brightness $brightness2
-    elif [[ $ORIENTATION = landscape ]]; then
-        xrandr --output DVI-D-0 --off --output HDMI-A-0 --mode 1920x1080 --pos 1920x0 --rotate left --brightness $brightness1 --output DP-0 --off --output DP-1 --off --output DisplayPort-2 --primary --mode "1920x1080_60.00_rb2" --pos 0x387 --rotate normal --brightness $brightness2
-    fi
+set_landscape() {
+    xrandr --output "$leftDisplay" --mode 1920x1080 --pos 0x0 --rotate normal --primary --rate 144.00 --brightness $brightness1 --output "$rightDisplay" --mode 1920x1080 --pos 1920x0 --rotate normal --brightness $brightness2
 
-    wallpaper-engine
+    wallpaper-engine &
+}
+
+set_portrait() {
+    xrandr --output "$leftDisplay" --mode 1920x1080 --pos 0x0 --rotate normal --primary --rate 144.00 --brightness $brightness1 --output "$rightDisplay" --mode 1920x1080 --pos 1920x0 --rotate left --brightness $brightness2
+
+    wallpaper-engine &
 }
 
 
 
 if [[ -n $1 ]]; then
-   if [[ $1 = "--toggle" ]]; then
-      rotate "$ORIENTATION"
-   elif [[ $1 = "--set" ]]; then
-       if [[ $2 = "landscape" ]]; then
-			rotate landscape
-      elif [[ $2 = "portrait" ]]; then
-			rotate portrait
-      fi
-   fi
+    if [[ $1 = "--toggle" ]]; then
+        toggle_rotation
+    elif [[ $1 = "--set" ]]; then
+        if [[ $2 = "landscape" ]]; then
+            set_landscape
+        elif [[ $2 = "portrait" ]]; then
+            set_portrait
+        fi
+    fi
 fi

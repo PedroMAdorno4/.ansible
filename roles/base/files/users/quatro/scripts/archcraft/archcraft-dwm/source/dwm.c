@@ -1198,7 +1198,7 @@ void dragcfact(const Arg *arg) {
       handler[ev.type](&ev);
       break;
     case MotionNotify:
-      if ((ev.xmotion.time - lasttime) <= (1000 / 60))
+      if ((ev.xmotion.time - lasttime) <= (1000 / 144))
         continue;
       lasttime = ev.xmotion.time;
       if (prev_x == -999999) {
@@ -2226,7 +2226,7 @@ void movemouse(const Arg *arg) {
       handler[ev.type](&ev);
       break;
     case MotionNotify:
-      if ((ev.xmotion.time - lasttime) <= (1000 / 60))
+      if ((ev.xmotion.time - lasttime) <= (1000 / 144))
         continue;
       lasttime = ev.xmotion.time;
 
@@ -2306,7 +2306,7 @@ void placemouse(const Arg *arg) {
       handler[ev.type](&ev);
       break;
     case MotionNotify:
-      if ((ev.xmotion.time - lasttime) <= (1000 / 60))
+      if ((ev.xmotion.time - lasttime) <= (1000 / 144))
         continue;
       lasttime = ev.xmotion.time;
 
@@ -2577,7 +2577,7 @@ void resizemouse(const Arg *arg) {
       handler[ev.type](&ev);
       break;
     case MotionNotify:
-      if ((ev.xmotion.time - lasttime) <= (1000 / 60))
+      if ((ev.xmotion.time - lasttime) <= (1000 / 144))
         continue;
       lasttime = ev.xmotion.time;
 
