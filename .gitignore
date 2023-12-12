@@ -1,2 +1,2 @@
-roles/base/files/users/quatro/scripts/archcraft/archcraft-dwm/archcraft-dwm*.pkg.tar.zst
-roles/base/files/users/quatro/scripts/archcraft/archcraft-st/archcraft-st*.pkg.tar.zst
+roles/base/files/users/quatro/scripts/archcraft/archcraft-dwm/**.pkg.tar.zst
+roles/base/files/users/quatro/scripts/archcraft/archcraft-st/**.pkg.tar.zst
