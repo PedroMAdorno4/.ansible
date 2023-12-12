@@ -112,8 +112,8 @@
     dest: "{{ item.dest }}"
     force: yes
   with_items:
-    - { repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '{{ansible_env.ZSH}}/plugins/zsh-autosuggestions' }
-    - { repo: 'https://github.com/zdharma-continuum/fast-syntax-highlighting', dest: '{{ansible_env.ZSH}}/plugins/fast-syntax-highlighting' }
+    - { repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '/usr/share/oh-my-zsh/plugins/zsh-autosuggestions' }
+    - { repo: 'https://github.com/zdharma-continuum/fast-syntax-highlighting', dest: '/usr/share/oh-my-zsh/plugins/fast-syntax-highlighting' }
 
 
 # - name: users | quatro | checkout git repositories
