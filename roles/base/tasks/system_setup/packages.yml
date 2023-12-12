@@ -37,10 +37,9 @@
 
 - name: system setup | install all packages part2 (yay)
   tags: ansible,ansible-setup,packages
-  become: yes
-  become_user: aur_builder
   kewlfft.aur.aur:
     use: yay
+    state: present
     name:
       - lib32-ncurses-git
       - ncurses-git
@@ -60,5 +59,7 @@
       - betterdiscord-installer
       - betterlockscreen
       - nerd-fonts-git
+  become: yes
+  become_user: aur_builder
 
 
