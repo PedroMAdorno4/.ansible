@@ -60,6 +60,5 @@
       - betterdiscord-installer
       - betterlockscreen
       - nerd-fonts-git
-  when: ansible_distribution == "Archlinux"
 
 
