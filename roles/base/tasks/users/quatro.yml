@@ -8,7 +8,7 @@
   tags: quatro,sudo,users
   user:
     name: quatro
-    group: quatro
+    group: me
     groups: me,{{ sudo_group }}
     state: present
     comment: ""
@@ -38,7 +38,7 @@
     path: "{{ item.dir }}"
     state: directory
     owner: quatro
-    group: quatro
+    group: me
     mode: 0700
   with_items:
     - { dir: '/home/quatro/.ssh' }
@@ -57,7 +57,7 @@
     path: /home/quatro/{{ item.dir }}
     state: directory
     owner: quatro
-    group: quatro
+    group: me
     mode: 0700
   with_items:
     - { dir: '.config' }
@@ -74,7 +74,7 @@
     src: users/quatro/{{ item.src }}
     dest: /home/quatro/{{ item.dest }}
     owner: quatro
-    group: quatro
+    group: me
     mode: 0755
   with_items:
     - { src: 'config/nvim/lua/user', dest: '.config/nvim/lua' }
