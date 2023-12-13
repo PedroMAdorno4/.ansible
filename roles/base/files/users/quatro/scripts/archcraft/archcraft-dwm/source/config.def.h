@@ -196,7 +196,8 @@ static Key keys[] = {
 
 	// Media -----------
 	{ 0, 						XF86XK_AudioMute, 			                spawn, {.v = mutevol } },
-	{ MODKEY, 			XK_slash, 		                          spawn, {.v = mutemic } },
+	{ MODKEY,					XK_slash, 		                          spawn, {.v = mutemic } },
+	{ MODKEY,					XK_backslash, 		                          spawn, {.v = mutemic } },
 	{ 0, 						XF86XK_AudioLowerVolume, 	              spawn, {.v = downvol } },
 	{ 0, 						XF86XK_AudioRaiseVolume, 	              spawn, {.v = upvol   } },
 	{ 0, 						XF86XK_AudioPlay, 	                    spawn, {.v = spotifyplaypause } },
