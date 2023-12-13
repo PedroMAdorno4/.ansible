@@ -76,7 +76,7 @@ alias cx='chmod +x'
 
 
 export PNPM_HOME="~/.local/share/pnpm"
-export PATH="$PATH:$PNPM_HOME:~/.local/bin"
+export PATH="$PATH:$PNPM_HOME:~/.local/bin:/usr/.local/bin"
 
 export DOTREPO="~/dotFiles"
 
