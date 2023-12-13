@@ -88,6 +88,7 @@
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'scripts/rotate-screen', dest: 'scripts/rotate-screen' }
     - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
+    - { src: 'scripts/wallhelper', dest: 'scripts/wallhelper' }
     - { src: 'scripts/switch-audio', dest: 'scripts/switch-audio' }
     - { src: 'scripts/decrease-volume', dest: 'scripts/decrease-volume' }
     - { src: 'scripts/increase-volume', dest: 'scripts/increase-volume' }
