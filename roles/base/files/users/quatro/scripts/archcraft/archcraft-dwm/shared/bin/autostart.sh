@@ -15,7 +15,7 @@ done
 xsetroot -cursor_name left_ptr
 
 # Polkit agent
-/usr/lib/xfce-polkit/xfce-polkit &
+# /usr/lib/xfce-polkit/xfce-polkit &
 
 # Lauch dwmbar
 /usr/share/archcraft/dwm/bin/dwmbar.sh &

@@ -1,6 +1,6 @@
 return {
   "AstroNvim/astrocommunity",
-  { import = "astrocommunity.colorscheme.tokyonight" },
+  { import = "astrocommunity.colorscheme.tokyonight-nvim" },
   { import = "astrocommunity.pack.tailwindcss" },
   { import = "astrocommunity.pack.markdown" },
   { import = "astrocommunity.pack.svelte" },
@@ -10,11 +10,4 @@ return {
   { import = "astrocommunity.pack.go" },
   { import = "astrocommunity.pack.bash" },
   { import = "astrocommunity.bars-and-lines.smartcolumn-nvim" },
-  {
-    "m4xshen/smartcolumn.nvim",
-    opts = {
-      colorcolumn = 120,
-      disabled_filetypes = { "help" },
-    },
-  },
 }
