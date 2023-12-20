@@ -33,6 +33,7 @@ export _JAVA_AWT_WM_NONREPARENTING=1
 # Some programs regarding X are autostarted at /usr/share/sddm/scripts/
 ## Add your autostart programs here --------------
 xset r rate 260 60 &
+sudo sed -i /usr/share/X11/locale/en_US.UTF-8/Compose -e 's/ć/ç/g' -e 's/Ć/Ç/g' &
 xmousepasteblock &
 flameshot &
 ncspot &
