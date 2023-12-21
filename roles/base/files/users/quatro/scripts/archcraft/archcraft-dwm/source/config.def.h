@@ -96,7 +96,7 @@ static const Rule rules[] = {
 	{ "feh",  				NULL,       NULL,       0,       	  1,           1,           -1 },
 	{ "Pavucontrol",  		NULL,       NULL,       0,       	  1,           1,           -1 },
 	{ "Lxappearance",  		NULL,       NULL,       0,       	  1,           1,           -1 },
-	{ "alacritty-float",  	NULL,       NULL,       0,       	  1,           1,           -1 },
+	{ "st-float",  	NULL,       NULL,       0,       	  1,           1,           -1 },
 	{ "VirtualBox Manager",  			NULL,       NULL,       0,       	  1,           1,           -1 },
 	{ "Nm-connection-editor",  			NULL,       NULL,       0,       	  1,           1,           -1 },
 	{ "Xfce4-power-manager-settings",  	NULL,       NULL,       0,       	  1,           1,           -1 },

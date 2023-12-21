@@ -12,6 +12,6 @@ rofi \
 	-drun-match-fields all \
 	-drun-display-format "{name}" \
 	-no-drun-show-actions \
-	-terminal alacritty \
-  -kb-cancel Escape,Super+d \
+	-terminal st \
+	-kb-cancel Escape,Super+d \
 	-theme "$DIR"/rofi/themes/launcher.rasi
