@@ -31,6 +31,8 @@
       - luarocks
       - zip
       - unzip
+      - jdk-openjdk
+      - jadx
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -47,6 +49,7 @@
       - lib32-ncurses-git
       - ncurses-git
       - neovim-git
+      - android-apktool
       - ncspot
       - oh-my-zsh-git
       - zsh-theme-powerlevel10k-git
