@@ -37,7 +37,7 @@ sudo sed -i /usr/share/X11/locale/en_US.UTF-8/Compose -e 's/ć/ç/g' -e 's/Ć/Ç
 sudo sed -i "s|dead_acute,[ ]*dead_diaeresis,[ ]*apostrophe,[ ]*quotedbl|dead_acute, quotedbl|" /usr/share/X11/xkb/symbols/us &
 xmousepasteblock &
 flameshot &
-ncspot &
+st -e ncspot &
 sleep 1 && wallpaper-engine &
 
 if [[ "$USER" = "pedroma" ]]; then

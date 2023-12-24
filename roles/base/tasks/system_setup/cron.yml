@@ -22,10 +22,10 @@
     minute: "{{ ansible_cron_minute | default('*/30') }}"
     job: "/usr/local/bin/provision > /dev/null"
 
-- name: system setup | cron | schedule ansible cleanup at boot
-  tags: cron
-  cron:
-    name: "ansible refresh at boot"
-    user: quatro
-    special_time: reboot
-    job: "/bin/rm -rf /home/quatro/.ansible"
+# - name: system setup | cron | schedule ansible cleanup at boot
+#   tags: cron
+#   cron:
+#     name: "ansible refresh at boot"
+#     user: quatro
+#     special_time: reboot
+#     job: "/bin/rm -rf /home/quatro/.ansible"
