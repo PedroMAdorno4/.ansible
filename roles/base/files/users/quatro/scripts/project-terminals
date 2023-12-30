@@ -25,5 +25,6 @@ if [[ $parsedProject ]]; then
 			fi
 		fi
 	done
-
 fi
+
+nvim
