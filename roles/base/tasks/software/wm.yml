@@ -1,0 +1,13 @@
+- name: Checkout Hyprload repository
+  ansible.builtin.git:
+    repo: 'https://github.com/Duckonaut/hyprload.git'
+    dest: /home/quatro/.cache/hyprload
+    version: main
+
+
+- name: Install Hyprload Plugin Manager
+  become: yes
+  become_user: quatro
+  ansible.builtin.command: /home/quatro/.cache/hyprload/install.sh
+  args:
+    creates: /home/quatro/.local/share/hyprload

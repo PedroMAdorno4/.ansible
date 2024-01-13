@@ -32,6 +32,7 @@
       - man-pages
       - less
       - texinfo
+      - lxappearance
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -80,5 +81,16 @@
       - dracula-icons-git
       - xdg-desktop-portal-hyprland
       - mpvpaper-git
+      - noto-fonts
+      - brave-bin
+      - bibata-cursor-theme
   become: yes
   become_user: aur_builder
+
+- name: Create terminal symbolic link for Gnome Gio / wofi
+  ansible.builtin.file:
+    src: '/usr/bin/kitty'
+    dest: '/usr/bin/gnome-terminal'
+    owner: quatro
+    group: quatro
+    state: link
