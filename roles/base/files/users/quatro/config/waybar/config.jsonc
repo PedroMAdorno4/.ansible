@@ -47,8 +47,8 @@
 		"artist-len": 20,
 		"title-len": 50,
 		"status-icons": {
-			"playing": "⏸",
-			"paused": "▶"
+			"playing": "||",
+			"paused": "|>"
 		}
 		// "ignored-players": ["firefox"]
 	},
