@@ -28,6 +28,10 @@
       - zip
       - unzip
       - jdk-openjdk
+      - man-db
+      - man-pages
+      - less
+      - texinfo
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -70,10 +74,11 @@
       - gvfs
       - bluez
       - bluez-utils
-      - lxappearance
+      - nwg-look-bin
       - xfce4-settings
       - dracula-gtk-theme
       - dracula-icons-git
       - xdg-desktop-portal-hyprland
+      - mpvpaper-git
   become: yes
   become_user: aur_builder

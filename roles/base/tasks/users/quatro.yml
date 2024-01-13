@@ -47,7 +47,7 @@
     src: users/quatro/{{ item.src }}
     dest: /home/quatro/{{ item.dest }}
     owner: quatro
-    group: me
+    group: quatro
     mode: 0755
   with_items:
     - { src: 'config/hypr', dest: '.config' }

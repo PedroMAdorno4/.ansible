@@ -10,18 +10,18 @@
     path: /{{ item.dir }}
     state: directory
     owner: quatro
-    group: me
+    group: quatro
     mode: 0775
   with_items:
     - { dir: 'usr/.local' }
     - { dir: 'usr/.local/bin' }
 
-- name: Create executable hard links
+- name: Create executable symbolic links
   ansible.builtin.file:
     src: '/home/quatro/scripts/{{ item.src }}'
     dest: '/usr/.local/bin/{{ item.src }}'
     owner: quatro
-    group: me
+    group: quatro
     state: link
   loop:
     - { src: 'project-finder'}
@@ -30,3 +30,11 @@
     - { src: 'wallpaper-engine'}
     - { src: 'wallhelper'}
     - { src: 'switch-audio'}
+
+- name: Create terminal symbolic link for Gnome Gio / wofi
+  ansible.builtin.file:
+    src: '/usr/bin/kitty'
+    dest: '/usr/bin/gnome-terminal'
+    owner: quatro
+    group: quatro
+    state: link
