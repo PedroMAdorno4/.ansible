@@ -40,6 +40,10 @@
     - { dir: '.config/mpv' }
     - { dir: 'scripts' }
     - { dir: 'pjx' }
+    - { dir: 'Videos' }
+    - { dir: 'Videos/wallpapers' }
+    - { dir: 'Videos/wallpapers/landscape' }
+    - { dir: 'Videos/wallpapers/portrait' }
 
 - name: users | quatro | copy dotfiles
   tags: dotfiles,users,quatro,users,vim,zsh
