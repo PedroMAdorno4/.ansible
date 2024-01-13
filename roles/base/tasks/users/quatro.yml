@@ -64,6 +64,9 @@
     - { src: 'config/swaylock', dest: '.config' }
     - { src: 'config/waybar', dest: '.config' }
     - { src: 'config/wofi', dest: '.config' }
+    - { src: 'config/gtk-3.0', dest: '.config' }
+    - { src: 'config/xsettingsd', dest: '.config' }
+    - { src: 'config/.gtkrc-2.0', dest: '.config' }
     - { src: 'zshrc', dest: '.zshrc' }
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }

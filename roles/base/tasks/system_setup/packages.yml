@@ -33,6 +33,7 @@
       - less
       - texinfo
       - lxappearance
+      - pavucontrol
     state: latest
   when: ansible_distribution == "Archlinux"
 
