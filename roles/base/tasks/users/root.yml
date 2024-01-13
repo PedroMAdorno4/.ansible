@@ -24,12 +24,9 @@
     group: me
     state: link
   loop:
-    - { src: 'decrease-volume'}
-    - { src: 'increase-volume'}
     - { src: 'project-finder'}
     - { src: 'project-terminals'}
     - { src: 'rotate-screen'}
     - { src: 'wallpaper-engine'}
     - { src: 'wallhelper'}
     - { src: 'switch-audio'}
-    - { src: 'toggle-spotify'}

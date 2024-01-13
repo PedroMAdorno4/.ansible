@@ -10,7 +10,6 @@
     name: 
       - archlinux-keyring
       - arandr
-      - xorg-xinit
       - linux-zen
       - linux-zen-docs
       - linux-zen-headers
@@ -25,14 +24,10 @@
       - electron
       - ripgrep
       - fzf
-      - zsh
-      - zsh-completions
-      - picom
       - luarocks
       - zip
       - unzip
       - jdk-openjdk
-      - jadx
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -46,27 +41,39 @@
     use: yay
     state: present
     name:
-      - lib32-ncurses-git
-      - ncurses-git
       - neovim-git
-      - android-apktool
       - ncspot
-      - oh-my-zsh-git
-      - zsh-theme-powerlevel10k-git
-      - python-launchpadlib
       - nvm
       - gotop-bin
-      - ksuperkey
-      - pam_ssh
       - beekeeper-studio-bin
       - discord_arch_electron
-      - xmousepasteblock
-      - shantz-xwinwrap-bzr
       - betterdiscord-installer
-      - betterlockscreen
-      - nvm
-      - nerd-fonts-git
+      - hyprland
+      - kitty
+      - waybar
+      - swaybg
+      - swaylock-effects
+      - wofi
+      - wlogout
+      - mako
+      - thunar
+      - ttf-jetbrains-mono-nerd
+      - noto-fonts-emoji
+      - polkit-gnome
+      - python-requests
+      - starship
+      - swappy
+      - grim
+      - slurp
+      - pamixer
+      - brightnessctl
+      - gvfs
+      - bluez
+      - bluez-utils
+      - lxappearance
+      - xfce4-settings
+      - dracula-gtk-theme
+      - dracula-icons-git
+      - xdg-desktop-portal-hyprland
   become: yes
   become_user: aur_builder
-
-

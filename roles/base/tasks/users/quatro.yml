@@ -1,36 +1,9 @@
-- name: users | quatro | create 'me' group
-  tags: groups,quatro,users
-  group:
-    name: me
-    state: present
-
-- name: users | quatro | create user
-  tags: quatro,sudo,users
-  user:
-    name: quatro
-    group: me
-    groups: me,{{ sudo_group }}
-    state: present
-    comment: ""
-    password: ""
-    shell: /bin/zsh
-
-
 - lineinfile:
      path: /etc/sudoers.d/quatro-allow-to-makepkg
      state: present
-     line: "quatro ALL=(ALL) NOPASSWD: /usr/bin/pacman,/usr/share/terminfo"
+     line: "quatro ALL=(ALL) NOPASSWD: /usr/bin/pacman"
      validate: /usr/sbin/visudo -cf %s
      create: yes
-
-- name: users | quatro | add sudoers file
-  tags: quatro,settings,simone,sudo,system,users
-  copy:
-    src: users/sudoers_quatro
-    dest: /etc/sudoers.d/quatro
-    owner: root
-    group: root
-    mode: 0440
 
 - name: users | quatro | create .ssh directory
   tags: dotfiles,quatro,ssh,users
@@ -38,7 +11,7 @@
     path: "{{ item.dir }}"
     state: directory
     owner: quatro
-    group: me
+    group: quatro
     mode: 0700
   with_items:
     - { dir: '/home/quatro/.ssh' }
@@ -57,7 +30,7 @@
     path: /home/quatro/{{ item.dir }}
     state: directory
     owner: quatro
-    group: me
+    group: quatro
     mode: 0700
   with_items:
     - { dir: '.config' }
@@ -77,60 +50,23 @@
     group: me
     mode: 0755
   with_items:
-    - { src: 'config/nvim/lua/user', dest: '.config/nvim/lua' }
+    - { src: 'config/hypr', dest: '.config' }
+    - { src: 'config/kitty', dest: '.config' }
+    - { src: 'config/mako', dest: '.config' }
+    - { src: 'config/mimeapps.list', dest: '.config' }
     - { src: 'config/mpv', dest: '.config' }
-    - { src: 'scripts/archcraft', dest: 'scripts' }
+    - { src: 'config/nvim/lua/user', dest: '.config/nvim/lua' }
+    - { src: 'config/starship.toml', dest: '.config' }
+    - { src: 'config/swaylock', dest: '.config' }
+    - { src: 'config/waybar', dest: '.config' }
+    - { src: 'config/wofi', dest: '.config' }
     - { src: 'zshrc', dest: '.zshrc' }
-    - { src: 'xinitrc', dest: '.xinitrc' }
-    - { src: 'inputrc', dest: '.inputrc' }
-    - { src: 'p10k.zsh', dest: '.p10k.zsh' }
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'scripts/rotate-screen', dest: 'scripts/rotate-screen' }
     - { src: 'scripts/wallpaper-engine', dest: 'scripts/wallpaper-engine' }
     - { src: 'scripts/wallhelper', dest: 'scripts/wallhelper' }
     - { src: 'scripts/switch-audio', dest: 'scripts/switch-audio' }
-    - { src: 'scripts/decrease-volume', dest: 'scripts/decrease-volume' }
-    - { src: 'scripts/increase-volume', dest: 'scripts/increase-volume' }
-    - { src: 'scripts/toggle-spotify', dest: 'scripts/toggle-spotify' }
     - { src: 'scripts/project-finder', dest: 'scripts/project-finder' }
     - { src: 'scripts/project-terminals', dest: 'scripts/project-terminals' }
     - { src: 'pjx/project-terminals.txt', dest: 'pjx/project-terminals.txt' }
-
-- name: system setup | Build and install dwm and st packages
-  tags: test
-  ansible.builtin.command: /home/quatro/scripts/archcraft/build-packages.sh
-  become_user: quatro
-  args:
-    chdir: /home/quatro/scripts/archcraft
-
-
-- name: users | quatro | checkout git repositories
-  tags: git,users,quatro
-  become: yes
-  git:
-    repo: "{{ item.repo }}"
-    dest: "{{ item.dest }}"
-    force: yes
-  with_items:
-    - { repo: 'https://github.com/zsh-users/zsh-autosuggestions', dest: '/usr/share/oh-my-zsh/plugins/zsh-autosuggestions' }
-    - { repo: 'https://github.com/zdharma-continuum/fast-syntax-highlighting', dest: '/usr/share/oh-my-zsh/plugins/fast-syntax-highlighting' }
-
-
-# - name: users | quatro | checkout git repositories
-#   tags: git,users,quatro
-#   become: yes
-#   git:
-#     repo: "{{ item.repo }}"
-#     dest: "{{ item.dest }}"
-#     force: yes
-#   with_items:
-#     - { repo: 'https://github.com/ctrlpvim/ctrlp.vim.git', dest: '/home/quatro/.vim/bundle/ctrlp.vim' }
-#     - { repo: 'https://github.com/davidhalter/jedi-vim.git', dest: '/home/quatro/.vim/bundle/jedi-vim' }
-#     - { repo: 'https://github.com/pearofducks/ansible-vim', dest: '/home/quatro/.vim/bundle/ansible-vim' }
-#     - { repo: 'https://github.com/rhysd/vim-grammarous.git', dest: '/home/quatro/.vim/bundle/vim-grammarous' }
-#     - { repo: 'https://github.com/ron89/thesaurus_query.vim', dest: '/home/quatro/.vim/bundle/thesaurus_query' }
-#     - { repo: 'https://github.com/scrooloose/nerdtree.git', dest: '/home/quatro/.vim/bundle/nerdtree' }
-#     - { repo: 'https://github.com/tpope/vim-obsession.git', dest: '/home/quatro/.vim/bundle/vim-obsession' }
-#     - { repo: 'https://github.com/vim-syntastic/syntastic.git', dest: '/home/quatro/.vim/bundle/syntastic' }
-#   notify: update_vim_bundle_perms
