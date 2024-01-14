@@ -54,6 +54,7 @@
     group: quatro
     mode: 0755
   with_items:
+    - { src: 'ssh', dest: '.ssh' }
     - { src: 'config/fastfetch', dest: '.config' }
     - { src: 'config/hypr', dest: '.config' }
     - { src: 'config/kitty', dest: '.config' }
