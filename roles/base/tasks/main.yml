@@ -30,6 +30,7 @@
   # - import_tasks: system_setup/scripts.yml
   
   - import_tasks: software/wm.yml
+  - import_tasks: software/pam_ssh.yml
 
   rescue:
     - set_fact: task_failed=true

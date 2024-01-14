@@ -16,14 +16,6 @@
   with_items:
     - { dir: '/home/quatro/.ssh' }
 
-- name: users | quatro | add public key
-  tags: dotfiles,quatro,ssh,ssh-keys,users
-  authorized_key:
-    user: quatro
-    key: "{{ item }}"
-  with_file:
-    - users/quatro/ssh/quatro_id_ed25519.pub
-
 - name: users | quatro | create config directories
   tags: dotfiles,quatro,tmux,users,vim,zsh
   file:
@@ -71,6 +63,7 @@
     - { src: 'gtkrc-2.0', dest: '.gtkrc-2.0' }
     - { src: 'XCompose', dest: '.XCompose' }
     - { src: 'zshrc', dest: '.zshrc' }
+    - { src: 'bashrc', dest: '.bashrc' }
     - { src: 'usr/local/bin/compiler', dest: 'scripts/compiler' }
     - { src: 'usr/local/bin/opout', dest: 'scripts/opout' }
     - { src: 'scripts/rotate-screen', dest: 'scripts/rotate-screen' }

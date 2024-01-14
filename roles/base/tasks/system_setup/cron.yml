@@ -22,7 +22,7 @@
     minute: "{{ ansible_cron_minute | default('*/30') }}"
     job: "/usr/local/bin/provision > /dev/null"
 
-- name: system setup | cron | schedule automatic ansible provisioning
+- name: system setup | cron | schedule cedilla sed replacement on reboots
   tags: cron
   cron:
     name: "Compose cedilla"
