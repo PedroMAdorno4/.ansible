@@ -22,6 +22,13 @@
     minute: "{{ ansible_cron_minute | default('*/30') }}"
     job: "/usr/local/bin/provision > /dev/null"
 
+- name: system setup | cron | schedule automatic ansible provisioning
+  tags: cron
+  cron:
+    name: "Compose cedilla"
+    user: root
+    job: "sudo sed -i /usr/share/X11/locale/en_US.UTF-8/Compose -e 's/ć/ç/g' -e 's/Ć/Ç/g'"
+
 # - name: system setup | cron | schedule ansible cleanup at boot
 #   tags: cron
 #   cron:

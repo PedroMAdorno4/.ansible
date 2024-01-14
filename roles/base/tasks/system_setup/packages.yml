@@ -35,6 +35,9 @@
       - lxappearance
       - pavucontrol
       - fastfetch
+      - openssh
+      - vi
+      - strace
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -86,6 +89,7 @@
       - noto-fonts
       - brave-bin
       - bibata-cursor-theme
+      - pam_ssh
   become: yes
   become_user: aur_builder
 

@@ -1,0 +1,43 @@
+
+- name: Pam_ssh auth 
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/login
+    insertafter: '^(\s*)auth(\s*)include(\s*)system-local-login(\s*)$'
+    line: 'auth       optional     pam_ssh.so        try_first_pass'
+
+- name: Pam_ssh session
+  ansible.builtin.lineinfile:
+    path: /etc/pam.d/login
+    insertafter: '^(\s*)session(\s*)include(\s*)system-local-login(\s*)$'
+    line: 'session    optional     pam_ssh.so'
+
+- name: users | quatro | create ssh directory
+  file:
+    path: /home/quatro/{{ item.dir }}
+    state: directory
+    owner: quatro
+    group: quatro
+    mode: 0700
+  with_items:
+    - { dir: '.ssh' }
+
+- name: users | quatro | create pam_ssh directory
+  file:
+    path: /home/quatro/.ssh/{{ item.dir }}
+    state: directory
+    owner: quatro
+    group: quatro
+    mode: 0755
+  with_items:
+    - { dir: 'login-keys.d' }
+
+- name: users | quatro | Create ssh private key links
+  ansible.builtin.file:
+    src: '/home/quatro/.ssh/{{ item.src }}'
+    dest: '/home/quatro/.ssh/login-keys.d/{{ item.src }}'
+    owner: quatro
+    group: quatro
+    state: link
+  loop:
+    - { src: 'id_ed25519'}
+    - { src: 'id_rsa'}
