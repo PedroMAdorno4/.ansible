@@ -42,7 +42,9 @@
     
 	"mpris": {
 		"format": "{status_icon} {artist} - {title} <small>[{position}-{length}]</small>",
-		"player": "ncspot",
+		// Should filter for ncspot only on work machines
+		// (So the most recent youtube video isn't shown)
+		//"player": "ncspot",
 		"interval": 1,
 		"artist-len": 20,
 		"title-len": 50,
