@@ -38,6 +38,8 @@
       - openssh
       - vi
       - strace
+      - udiskie
+      - wl-clipboard
     state: latest
   when: ansible_distribution == "Archlinux"
 
@@ -90,6 +92,7 @@
       - brave-bin
       - bibata-cursor-theme
       - pam_ssh
+      - hyprpicker-git
   become: yes
   become_user: aur_builder
 
