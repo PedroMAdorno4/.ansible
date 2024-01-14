@@ -34,6 +34,7 @@
       - texinfo
       - lxappearance
       - pavucontrol
+      - fastfetch
     state: latest
   when: ansible_distribution == "Archlinux"
 
