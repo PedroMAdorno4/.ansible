@@ -35,7 +35,7 @@
   ansible.builtin.lineinfile:
     path: /etc/environment
     regexp: '^PATH'
-    line: PATH=$PATH:/usr/.local/bin
+    line: PATH=/usr/.local/bin
     owner: root
     group: root
     mode: '0644'
