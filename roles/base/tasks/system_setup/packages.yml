@@ -93,6 +93,7 @@
       - bibata-cursor-theme
       - pam_ssh
       - hyprpicker-git
+      - nnn-nerd
   become: yes
   become_user: aur_builder
 
