@@ -30,3 +30,35 @@
     - { src: 'wallpaper-engine'}
     - { src: 'wallhelper'}
     - { src: 'switch-audio'}
+
+- name: Ensure cedilla immodule is present in GTK3
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /usr/lib/gtk-3.0/3.0.0/immodules.cache
+    line: '"cedilla" "Cedilla" "gtk30" "/usr/share/locale" "az:ca:co:fr:gv:oc:pt:sq:tr:wa:en"'
+    create: yes
+    mode: 0644
+
+- name: Ensure cedilla immodule is present in GTK2
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /usr/lib/gtk-2.0/2.10.0/immodules.cache
+    line: '"cedilla" "Cedilla" "gtk30" "/usr/share/locale" "az:ca:co:fr:gv:oc:pt:sq:tr:wa:en"'
+    create: yes
+    mode: 0644
+
+- name: Ensure GTK cedilla immodule is being loaded
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: 'GTK_IM_MODULE=cedilla'
+    create: yes
+    mode: 0644
+
+- name: Ensure QT cedilla immodule is being loaded
+  become: yes
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    line: 'QT_IM_MODULE=cedilla'
+    create: yes
+    mode: 0644
