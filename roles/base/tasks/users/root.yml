@@ -31,6 +31,15 @@
     - { src: 'wallhelper'}
     - { src: 'switch-audio'}
 
+- name: Add PATH env var to /etc/environment
+  ansible.builtin.lineinfile:
+    path: /etc/environment
+    regexp: '^PATH'
+    line: PATH=$PATH:/usr/.local/bin
+    owner: root
+    group: root
+    mode: '0644'
+
 #- name: Ensure cedilla immodule is present in GTK3
 #  become: yes
 #  ansible.builtin.lineinfile:
