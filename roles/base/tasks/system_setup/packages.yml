@@ -94,6 +94,8 @@
       - pam_ssh
       - hyprpicker-git
       - nnn-nerd
+      - otf-ibm-plex
+      - wofi-emoji
   become: yes
   become_user: aur_builder
 
