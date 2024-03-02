@@ -40,9 +40,15 @@
       - strace
       - udiskie
       - wl-clipboard
+      - yazi 
+      - ffmpegthumbnailer 
+      - unarchiver 
+      - jq
+      - poppler
+      - fd
+      - zoxide
     state: latest
   when: ansible_distribution == "Archlinux"
-
 - name: Check installed packages
   ansible.builtin.command: pacman -Qm
   register: installed_packages
@@ -60,7 +66,7 @@
       - beekeeper-studio-bin
       - discord_arch_electron
       - betterdiscord-installer
-      - hyprland
+      - hyprland-git
       - kitty
       - waybar
       - swaybg
@@ -96,6 +102,7 @@
       - nnn-nerd
       - otf-ibm-plex
       - wofi-emoji
+      - lazygit-git
   become: yes
   become_user: aur_builder
 
