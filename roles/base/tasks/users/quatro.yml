@@ -50,6 +50,7 @@
     - { src: 'config/fastfetch', dest: '.config' }
     - { src: 'config/hypr', dest: '.config' }
     - { src: 'config/kitty', dest: '.config' }
+    - { src: 'config/ncspot', dest: '.config' }
     - { src: 'config/mako', dest: '.config' }
     - { src: 'config/mimeapps.list', dest: '.config' }
     - { src: 'config/mpv', dest: '.config' }
