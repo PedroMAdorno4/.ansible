@@ -1,0 +1,4 @@
+[[language]]
+name = "typescript"
+language-servers = ["typescript-language-server"]
+auto-format = true
